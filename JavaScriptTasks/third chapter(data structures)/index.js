@@ -99,3 +99,130 @@ var objectForMultiplication = {
 console.log(objectForMultiplication)
 numberPropertyMultiplication(objectForMultiplication)
 console.log(objectForMultiplication)
+
+
+var array  = ["first","second","third","fourth"]
+
+console.log("Фунция получения последнего элемента массива")
+function getLastElementFromArray(ar) {
+	return ar[ar.length - 1];
+}
+console.log(getLastElementFromArray(array));
+
+
+console.log("Функция добавления элемента в конец массива")
+function AddElement(element){
+	array[array.length] = element;
+}
+AddElement("fifth")
+console.log(array)
+
+console.log("Операции добавления удаления элементов у массива")
+var genre= ["джаз","блюз"];
+genre[genre.length] = "рок-н-ролл";
+genre[genre.length - 2] = "классика";
+console.log(genre.shift());
+genre.unshift("рэп","рэгги");
+console.log(genre);
+
+console.log("получение случайного элемента массива")
+var rand = Math.floor(Math.random() * genre.length);
+console.log(genre[rand])
+
+
+console.log("Функия нахождения инекса элемента,если нет -1.Элементы поиска : классика,поп")
+function find(ar,element) {
+	for (var i = 0; i < ar.length ; i++) {
+		if (ar[i] == element) 
+			return i;
+	}
+	return -1;
+}
+console.log(find(genre,"классика"))
+console.log(find(genre,"поп"))
+
+
+function filterRange(arr, a, b) {
+	var items = [];
+	for (var i = a; i <= b; i++) {
+		items.length++;
+		items[items.length-1] = arr[i];
+	}
+	return items;
+}
+console.log(filterRange(genre,1,3))
+
+
+console.log("найти непрерывный подмассив arr, сумма элементов которого максимальна.возвращать только сумму")//подумать
+function getMaxSubSum(ar) {
+	var maxSum = 0;
+	var sumElements = 0;
+	for (var i = 0; i < ar.length ; i++) {
+		sumElements = sumElements + ar[i];
+		maxSum = Math.max(maxSum, sumElements);
+		if (ar[i] > ar[i+1] ){
+			sumElements = 0;
+		}
+	}
+	return maxSum;
+}
+var sumArray =  [6, 2, 3, 4];
+console.log(getMaxSubSum(sumArray))
+
+
+console.log("Функция, которая добавляет в свойство объекта строку , если таковой подстроки нету у свой нету")
+function addClass(obj, cls) {
+	var list =  obj.className.split(" ");
+	for (var i = 0; i < list.length; i++) {
+		if (!(cls.localeCompare(list[i])))
+			return;
+	}
+	list.push(cls);
+	obj.className = list.join(" ");
+}
+var testObject = {
+	className : "menu"
+}
+addClass(testObject,"was");
+addClass(testObject,"opened");
+console.log(testObject.className)
+
+
+
+console.log("Функция, преобразующая строку ида «my-short-string» в «myShortString».")
+function camelize(str) {
+	var ar = str.split("-");
+	for (var i = 0; i < ar.length; i++) {
+		ar[i] = ar[i].charAt(0).toUpperCase()+ar[i].slice(1);
+	}
+	return ar.join("");
+}
+var s = "list-style-image";
+console.log(s)
+console.log(camelize(s));
+
+
+console.log("Скопировать и отсортировать массив")
+function copyAndSortArray(ar){
+	var myArray = ar.concat();
+	return myArray.sort();
+}
+console.log(genre);
+console.log(copyAndSortArray(genre))
+
+
+console.log("Сортировка объектов в массиве по возрасту")
+function comparePeopleByAge(first,second){
+	return first.age > second.age ? 1 : -1;
+}
+function outputPeople(ar) {
+	for (var i = 0; i < ar.length; i++) {
+		console.log(ar[i].name + " " + ar[i].age);
+	}
+}
+var vasya = { name: "Вася", age: 23 };
+var masha = { name: "Маша", age: 18 };
+var vovochka = { name: "Вовочка", age: 6 };
+var people = [ vasya , masha , vovochka ];
+console.log(outputPeople(people));
+console.log(outputPeople(people.sort(comparePeopleByAge)))
