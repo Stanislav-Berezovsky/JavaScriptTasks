@@ -226,3 +226,105 @@ var vovochka = { name: "Вовочка", age: 6 };
 var people = [ vasya , masha , vovochka ];
 console.log(outputPeople(people));
 console.log(outputPeople(people.sort(comparePeopleByAge)))
+
+
+
+
+
+var list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+console.log("Вывод односвязного списка")
+function printList(list) {
+  var element = list;
+  while (element) {
+    console.log( element.value );
+    element = element.next;
+  }
+}
+printList(list);
+
+console.log("Вывод односвязного списка при помощи рекурсии")
+function printListRecursion(list) {
+	var element = list;
+	console.log(element.value);
+	if (element.next) 
+		printList(element.next); 
+}
+printListRecursion(list);
+
+console.log("Вывод односвязного списка c конца при помощи рекурсии")
+function printReverseListRecursion(list) {
+	var element = list;
+	if (element.next) 
+		printReverseListRecursion(element.next);
+	console.log(element.value );
+}
+printReverseListRecursion(list);
+
+
+
+
+function aclean(arr) {
+	var myDictionary = {};
+	for (var i = 0; i < arr.length; i++) {
+		var sortedByLetterElement = arr[i].toLowerCase().split('').sort().join(''); 
+		myDictionary[sortedByLetterElement] = arr[i]; 
+	}
+	var items = [];
+	for (var key in myDictionary) 
+		items.push(myDictionary[key]);
+	return items;
+}
+var arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+console.log(aclean(arr));
+
+
+console.log("Фунция ,возвращающа массив частичных сумм(Каждый элемент сумма предыдущих")
+function getSums(arr) {
+	var items = [];
+	var totalSum = arr.reduce(function(sum, item) {
+		items.push(sum);
+		return sum + item;
+	});
+	items.push(totalSum);
+	return totalSum;
+}
+console.log(getSums([1,2,3,4,5]));
+
+
+console.log("Функция, которая выводит текущий день недели в коротком формате „пн“, „вт“, … „вс“.")
+function getWeekDay(date) {
+	return date.toLocaleString('ru', {weekday: 'short'});
+}
+var date = new Date(2012,0,3);
+console.log(getWeekDay(date));
+
+
+console.log("Функцию,  которая возвращает день недели для  date в европейской нумерации") 
+function getLocalDay(date) {
+	var day = date.getDay();
+	return (day == 0) ?	day = 7 : day;
+}
+console.log(getLocalDay(date));
+
+
+console.log("Фунция возвращает день прошедший n-ое количество дней назад")
+function getDateAgo(date, days) {
+  date.setDate(date.getDate() - days);
+  return date.getDate();
+}
+console.log(getDateAgo(date, 1) ); 
+console.log(getDateAgo(date, 2) ); 
+console.log(getDateAgo(date, 365)); 
