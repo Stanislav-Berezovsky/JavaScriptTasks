@@ -1,0 +1,23 @@
+{
+  "name": "jstask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/http-server -a localhost -p 8000 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stanislav-Berezovsky/JavaScriptTasks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stanislav-Berezovsky/JavaScriptTasks/issues"
+  },
+  "homepage": "https://github.com/Stanislav-Berezovsky/JavaScriptTasks#readme",
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
+}
