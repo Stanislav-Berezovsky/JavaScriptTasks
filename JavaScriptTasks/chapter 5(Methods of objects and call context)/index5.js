@@ -97,4 +97,27 @@ function c5() {
     }
     var vasya = new User("John Lennon");
     consoleLog(vasya.firstName + vasya.surname + vasya.fullName);
+
+
+
+    consoleLog("Написать суммирование элементов arguments при помощи Call для reduce")
+    function sumArgs() {
+        return [].reduce.call(arguments, function(a, b) {
+            return a + b;
+        })
+    }
+    consoleLog(sumArgs(4,5,2,5,7));
+
+
+    consoleLog("Функция applyAll, которая получает произвольное количество аргументов и фунцию для работы с ними");
+    function applyAll(func) {
+        return func.apply(this, [].splice.call(arguments,1));        
+    }
+    consoleLog("Сумма чисел 6,45,54: " + applyAll(sumArgs, 6, 45, 54));
+
+
+
+    
+
+
 };
