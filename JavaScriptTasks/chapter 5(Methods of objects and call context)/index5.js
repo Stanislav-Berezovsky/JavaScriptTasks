@@ -116,8 +116,4 @@ function c5() {
     consoleLog("Сумма чисел 6,45,54: " + applyAll(sumArgs, 6, 45, 54));
 
 
-
-    
-
-
 };
