@@ -16,11 +16,6 @@
 
     JQuery.prototype.css = function(key, value) {
         for (var i = 0; i < elements.length; i++) {
-            var arr = key.split("-");
-            for (var j = 1; j < arr.length; j++) {
-                arr[j] = arr[j].charAt(0).toUpperCase() + arr[j].slice(1);
-            }
-            key = arr.join('');
             elements[i].style[key] = value;
         }
         return this;
