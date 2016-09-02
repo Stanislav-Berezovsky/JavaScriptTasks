@@ -5,6 +5,6 @@
      parentElem.appendChild(p);
  }
 
- function clearDiv() {
+ function clearDiv(){
      document.getElementById('outputChapter').innerHTML = '';
  }
